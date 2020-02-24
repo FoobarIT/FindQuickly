@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import {Icon, Navbar, Button} from '@blueprintjs/core'
+
 import axios from 'axios'
 
 import Output from './Output'
 const API_URL = 'https://api.publicapis.org/'
 
 class Header extends Component {
-  state = {
-    query: '',
-    results: []
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: '',
+      results: []
+    }
   }
 
   getInfo = () => {
@@ -17,6 +22,8 @@ class Header extends Component {
         this.setState({
           results: data.entries
         })
+      }).catch(function (error) {
+
       })
   }
   handleInputChange = () => {
@@ -26,9 +33,7 @@ class Header extends Component {
       if (this.state.query && this.state.query.length > 1) {
         if (this.state.query.length % 2 === 0) {
           this.getInfo()
-        }
-      } else if (!this.state.query) {
-        return <h1>Nop</h1>
+        } 
       }
     })
   }
@@ -46,10 +51,11 @@ class Header extends Component {
               ref={input => this.header = input}
               onChange={this.handleInputChange}
             />
+
           </div>
           <div className="bp3-navbar-group bp3-align-right">
             <span className="bp3-navbar-divider"></span>
-            <h4><i class="lni-github-original"></i> FoobarIT</h4>
+            <h4><i className="lni-github-original"></i> FoobarIT</h4>
           </div>
         </nav>
 
