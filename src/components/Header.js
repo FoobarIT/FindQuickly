@@ -33,7 +33,7 @@ class Header extends Component {
       if (this.state.query && this.state.query.length > 1) {
         if (this.state.query.length % 2 === 0) {
           this.getInfo()
-        } 
+        }
       }
     })
   }
@@ -54,6 +54,9 @@ class Header extends Component {
 
           </div>
           <div className="bp3-navbar-group bp3-align-right">
+            <button class="bp3-button bp3-minimal"><span>Login </span><i class="lni-user"></i></button>
+            <button class="bp3-button bp3-minimal"><span>Register </span><i class="lni-unlock"></i></button>
+
             <span className="bp3-navbar-divider"></span>
             <h4><i className="lni-github-original"></i> FoobarIT</h4>
           </div>
